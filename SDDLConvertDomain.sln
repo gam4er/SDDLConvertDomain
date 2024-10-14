@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDDLConvertDomain", "SDDLConvertDomain\SDDLConvertDomain.csproj", "{52F28651-6852-4B29-95EB-5418BB43C7D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDDLConvertDomainConsole", "SDDLConvertDomainConsole\SDDLConvertDomainConsole.csproj", "{7A991E0C-FE82-4685-AF33-EE4728C738FE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52F28651-6852-4B29-95EB-5418BB43C7D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52F28651-6852-4B29-95EB-5418BB43C7D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52F28651-6852-4B29-95EB-5418BB43C7D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52F28651-6852-4B29-95EB-5418BB43C7D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A991E0C-FE82-4685-AF33-EE4728C738FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A991E0C-FE82-4685-AF33-EE4728C738FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A991E0C-FE82-4685-AF33-EE4728C738FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A991E0C-FE82-4685-AF33-EE4728C738FE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F2068C9F-95BA-4270-9835-8732CFB4BB59}
+	EndGlobalSection
+EndGlobal
