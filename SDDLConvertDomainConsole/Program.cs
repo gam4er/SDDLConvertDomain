@@ -87,14 +87,14 @@ namespace SDDLConvertDomainConsole
 
             if (match_all.Success)
             {
-                if (opts.Verbose)
+                //if (opts.Verbose)
                 {
                     Console.WriteLine("SDDL строка валидна.");
-                    Console.WriteLine($"SID владельца: {match_all.Groups ["OwnerSID"].Value}");
-                    Console.WriteLine($"SID группы: {match_all.Groups ["GroupSID"].Value}");
-                    Console.WriteLine($"Флаги DACL: {match_all.Groups ["DACLFlags"].Value}");
+                    Console.WriteLine($"SID владельца:\t\t{match_all.Groups ["OwnerSID"].Value}");
+                    Console.WriteLine($"SID группы:\t\t{match_all.Groups ["GroupSID"].Value}");
+                    Console.WriteLine($"Флаги DACL:\t\t{match_all.Groups ["DACLFlags"].Value}");
                     //Console.WriteLine($"ACE DACL: {match_all.Groups ["DACLACEs"].Value}");
-                    Console.WriteLine($"Флаги SACL: {match_all.Groups ["SACLFlags"].Value}");
+                    Console.WriteLine($"Флаги SACL:\t\t{match_all.Groups ["SACLFlags"].Value}");
                     //Console.WriteLine($"ACE SACL: {match_all.Groups ["SACLACEs"].Value}");
                     Console.WriteLine("====================================");
                 }
