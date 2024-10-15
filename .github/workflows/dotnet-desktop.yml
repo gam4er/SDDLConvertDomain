@@ -1,0 +1,41 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    name: Build and Release for win-x64
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1.1.0
+
+      - name: Restore NuGet packages
+        run: nuget restore SDDLConvertDomain.sln
+
+      - name: Build the solution
+        run: msbuild SDDLConvertDomain.sln /p:Configuration=Release /p:Platform="Any CPU"
+
+      - name: Archive the build
+        uses: actions/upload-artifact@v3
+        with:
+          name: SDDLConvertDomain-win-x64
+          path: |
+            SDDLConvertDomainConsole\bin\Release\**
+
+      - name: Create GitHub Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: SDDLConvertDomainConsole/bin/Release/**
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref }}
+          name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
