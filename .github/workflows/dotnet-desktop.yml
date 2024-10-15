@@ -5,7 +5,7 @@ on:
     tags:
       - '*'
   workflow_dispatch:
-  
+
 jobs:
   build:
     name: Build and Release for win-x64
@@ -17,6 +17,9 @@ jobs:
 
       - name: Setup NuGet
         uses: NuGet/setup-nuget@v1.1.0
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1
 
       - name: Restore NuGet packages
         run: nuget restore SDDLConvertDomain.sln
