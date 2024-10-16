@@ -31,17 +31,23 @@ jobs:
       - name: Build the solution
         run: msbuild SDDLConvertDomain.sln /p:Configuration=Release /p:Platform="Any CPU"
 
-      - name: Archive the build
-        uses: actions/upload-artifact@v3
+      - name: Create ZIP archive
+        run: |
+          mkdir artifacts
+          $tag = ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.tag_name || github.ref_name }}
+          Compress-Archive -Path SDDLConvertDomainConsole\bin\Release\* -DestinationPath "artifacts\SDDLConvertDomain-win-x64-$tag.zip"
+
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
         with:
-          name: SDDLConvertDomain-win-x64
-          path: |
-            SDDLConvertDomainConsole\bin\Release\**
+          name: SDDLConvertDomain-win-x64-$tag.zip
+          path: artifacts\SDDLConvertDomain-win-x64-$tag.zip
 
       - name: Create GitHub Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: SDDLConvertDomainConsole/bin/Release/**
+          artifacts: artifacts\SDDLConvertDomain-win-x64-$tag.zip
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.tag_name || github.ref_name }}
           name: Release ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.tag_name || github.ref_name }}
